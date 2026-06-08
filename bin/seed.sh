@@ -75,7 +75,7 @@ if [ -z "$home_id" ]; then
 [acp_newsletter]
 
 <h2>Case studies</h2>
-<p><em>Task 2:</em> the Case Study post type is half-built, so there's nothing to list here yet. Once you finish the CPT and build a shortcode or block, your list of case studies (with their headline metric) will render in this spot. Three sample case studies are already in the database waiting for you.</p>
+[acp_case_studies]
 HTML
   home_id=$(wp post create --post_type=page --post_status=publish \
             --post_title="Home" --post_name="home" \
