@@ -1,0 +1,16 @@
+# Local environment
+.env
+
+# Node / front-end build (stretch task)
+node_modules/
+dist/
+build/
+*.log
+
+# Editor / OS noise
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# WordPress core is provided by the Docker image, not committed here.
