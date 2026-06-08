@@ -1,0 +1,32 @@
+.acp-case-studies-widget {
+	margin: 1.5rem 0;
+}
+
+.acp-widget {
+	display: grid;
+	gap: 1rem;
+}
+
+.acp-widget__item {
+	padding: 1rem 1.25rem;
+	border: 1px solid #d6dde8;
+	border-radius: 10px;
+	background: #fff;
+}
+
+.acp-widget__title,
+.acp-widget__metric,
+.acp-widget__excerpt,
+.acp-widget__link,
+.acp-widget__status {
+	margin: 0 0 0.75rem;
+}
+
+.acp-widget__metric {
+	font-weight: 700;
+	color: #1f3a5f;
+}
+
+.acp-widget__status--error {
+	color: #991b1b;
+}
