@@ -1,6 +1,10 @@
 <!-- reviewed-by-orchestrator: TUMBLEWEED -->
 # Staging to Production Promotion Plan
 
+## Summary
+
+Promote code as a tested artifact. Do not overwrite production data with staging. Handle WordPress database changes selectively, with backups and rollback in place.
+
 ## 1. Code promotion
 
 I would treat code promotion as an artifact promotion problem, not a "whatever is on the branch right now" problem.
@@ -13,7 +17,7 @@ Recommended flow:
 4. QA and stakeholder review happen on staging against that exact commit.
 5. Production deploy uses the same tested commit, ideally via a Git tag or release artifact.
 
-That matters because it guarantees the code that reaches production is the same code that was tested on staging. I would not rebuild or manually edit files between staging and production.
+That matters because it guarantees production receives the same code that was tested on staging. I would not rebuild or manually edit files between environments.
 
 For this plugin specifically:
 
@@ -34,7 +38,7 @@ Production is the source of truth for:
 - options and configuration that may differ by environment
 - any content created since the last staging refresh
 
-The safe default is:
+Safe default:
 
 1. Promote code only.
 2. Apply narrowly scoped database changes only when necessary.
@@ -78,7 +82,7 @@ WordPress serializes values in places like:
 - term meta
 - widget and block-related settings
 
-A plain text dump-and-replace can corrupt serialized lengths and break the site. That is why any search/replace must use a tool that rewrites serialized payloads correctly.
+A plain text dump-and-replace can corrupt serialized lengths and break the site. Use a tool that rewrites serialized payloads correctly.
 
 ### Protecting live data
 
@@ -151,7 +155,7 @@ No deploy should require hand-editing plugin code to switch environments.
 
 ### Before production deploy
 
-I would require this checklist:
+Pre-deploy checklist:
 
 1. Confirm the exact Git tag/commit being released.
 2. Confirm staging sign-off against that exact build.
@@ -195,4 +199,4 @@ If a database rollback is required:
 3. Restore from the pre-deploy backup.
 4. Re-test immediately.
 
-Database rollback is last resort because it can discard real production activity such as new signups or content changes.
+Database rollback is a last resort because it can discard real production activity such as new signups or content changes.

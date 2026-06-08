@@ -5,7 +5,9 @@
 - Docker Desktop / Docker Engine with Compose support
 - Git
 
-## Steps
+## Working Setup
+
+These are the exact steps that worked on June 8, 2026.
 
 1. Clone the repository and change into it.
 2. Copy the local environment file:
@@ -20,7 +22,7 @@ cp .env.example .env
 docker compose up -d
 ```
 
-4. Seed WordPress, activate the plugin, and load the demo landing page:
+4. Seed WordPress, activate the plugin, and load the demo Home page:
 
 ```bash
 docker compose --profile setup run --rm wp-setup
@@ -36,7 +38,7 @@ docker compose --profile setup run --rm wp-setup
 - Username: `admin`
 - Password: `admin`
 
-## What I verified / intended to verify
+## Expected Result
 
 - Homepage renders at `http://localhost:8080`
 - Admin renders at `http://localhost:8080/wp-admin`
@@ -45,14 +47,8 @@ docker compose --profile setup run --rm wp-setup
 - Newsletter form is visible
 - Sample Case Studies exist in wp-admin
 
-## Environment note
+## Notes
 
-I used the provided Docker setup and did not add any extra local services.
-
-Working sequence on June 8, 2026:
-
-1. `cp .env.example .env`
-2. `docker compose up -d`
-3. `docker compose --profile setup run --rm wp-setup`
-
-The first `docker compose up -d` attempt hit a transient Docker Hub `504 Gateway Timeout`, but a retry completed successfully. The setup command then installed WordPress, activated `agency-client-plugin`, seeded sample case studies, and created the landing page.
+- I used the provided Docker setup and did not add any extra local services.
+- The first `docker compose up -d` attempt hit a transient Docker Hub `504 Gateway Timeout`, but a retry completed successfully.
+- The setup command then installed WordPress, activated `agency-client-plugin`, seeded sample case studies, and created the Home page.
