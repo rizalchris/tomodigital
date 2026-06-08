@@ -35,13 +35,57 @@
 
 /* Authority is a numeric column, so the figures should sit flush right. */
 .acp-partner-feed td.acp-score {
-	text-aling: right;
+	text-align: right;
 	font-variant-numeric: tabular-nums;
 }
 
 /* ---- Newsletter sign-up ---------------------------------------------------- */
 .acp-newsletter {
 	margin: 1.25rem 0;
+}
+
+.acp-notice {
+	margin: 0 0 1rem;
+	padding: 0.75rem 1rem;
+	border-radius: 6px;
+}
+
+.acp-notice--success {
+	background: #edfdf3;
+	color: #166534;
+}
+
+.acp-notice--error {
+	background: #fef2f2;
+	color: #991b1b;
+}
+
+.acp-case-studies {
+	display: grid;
+	gap: 1rem;
+	margin: 1.5rem 0;
+}
+
+.acp-case-study {
+	padding: 1rem 1.25rem;
+	border: 1px solid #e2e8f0;
+	border-radius: 8px;
+	background: #fff;
+}
+
+.acp-case-study__title,
+.acp-case-study__metric,
+.acp-case-study__link {
+	margin: 0 0 0.75rem;
+}
+
+.acp-case-study__metric {
+	font-weight: 700;
+	color: #1f3a5f;
+}
+
+.acp-case-studies-widget {
+	margin-top: 1.5rem;
 }
 
 .acp-newsletter label {
